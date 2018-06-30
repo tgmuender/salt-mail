@@ -34,7 +34,7 @@ allowed_networks: 127.0.0.0/8
 
 ### Add new user
 
-The passwd file is also managed by salt, hence the passwords have to be entered manually
+The passwd file is also managed by salt, to add a new user, follow these steps:
 
 1) Add user.name to pillar item 'mailboxes'
 2) Add user.pw to pillar items 'mailboxes'. You can generate a password as follows with the doveadm utility:

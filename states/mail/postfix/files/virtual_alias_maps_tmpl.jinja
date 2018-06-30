@@ -1,4 +1,4 @@
 {% set domain = salt['pillar.get']('domain_name') %}
-{%- for key in salt['pillar.get']('mailbox-users') %}
-{{key}}@{{domain}}    {{key}}@{{domain}}
+{%- for user in salt['pillar.get']('mailboxes') %}
+{{ user['name'] }}@{{ domain }}    {{ user['name'] }}@{{ domain }}
 {%- endfor %}

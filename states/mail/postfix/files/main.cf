@@ -32,10 +32,10 @@ smtp_tls_security_level = may
 
 smtpd_relay_restrictions = permit_mynetworks permit_sasl_authenticated defer_unauth_destination
 
-virtual_mailbox_domains = {{ salt['pillar.get']('domain_name') }}
+virtual_mailbox_domains = regexp:/etc/postfix/virtual_domains
 virtual_mailbox_base = {{ pillar['mailbox']['storage_dir'] }}
 virtual_mailbox_maps = hash:/etc/postfix/virtual_mailbox_maps
-virtual_alias_maps = hash:/etc/postfix/virtual_alias_maps
+virtual_alias_maps = regexp:/etc/postfix/virtual_alias_maps
 virtual_uid_maps = static:{{ pillar['mailbox']['uid'] }}
 virtual_gid_maps = static:{{ pillar['mailbox']['gid'] }}
 

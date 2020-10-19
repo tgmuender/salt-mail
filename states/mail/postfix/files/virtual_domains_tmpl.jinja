@@ -1,0 +1,4 @@
+{% set domain = salt['pillar.get']('domain_name') %}
+{%- for virtual_domain in salt['pillar.get']('virtual_domains') %}
+{{ virtual_domain }}   OK 
+{%- endfor %}

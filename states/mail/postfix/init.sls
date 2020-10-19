@@ -9,6 +9,12 @@ postfix-master-config:
         - name: /etc/postfix/master.cf
         - source: salt://mail/postfix/files/master.cf
 
+virtual-domains:
+    file.managed:
+        - name: /etc/postfix/virtual_domains
+        - source: salt://mail/postfix/files/virtual_domains_tmpl.jinja
+        - template: jinja  
+
 virtual-alias-maps:
     file.managed:
         - name: /etc/postfix/virtual_alias_maps

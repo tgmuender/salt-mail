@@ -1,4 +1,6 @@
 {% set domain = salt['pillar.get']('domain_name') %}
+{% set domain_parts = domain.split('.') %}
 {%- for user in salt['pillar.get']('mailboxes') %}
-{{ user['name'] }}@{{ domain }}    {{ user['name'] }}@{{ domain }}
+/{{ user['name'] }}@{{ domain_parts[0] }}\.{{ domain_parts[1] }}/    {{ user['name'] }}@{{ domain }}
+/{{ user['name'] }}@.+\.{{ domain_parts[0] }}\.{{ domain_parts[1] }}/ {{ user['name'] }}@{{ domain }}
 {%- endfor %}

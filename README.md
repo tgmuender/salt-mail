@@ -24,6 +24,9 @@ mailboxes:
     - name: user2
       pw: "pw2"
 
+virtual_domains:
+  - /example\.com/
+  - /.+\.example\.com/
 
 user: virtualmail
 domain_name: your_domain

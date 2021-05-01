@@ -9,6 +9,9 @@ dovecot:
     pkg.installed:
         - name: dovecot-imapd
 
+fail2ban:
+    pkg.installed
+
 virtual-user-group:
     group.present:
         - name: {{ salt['pillar.get']('mailbox:group') }}
